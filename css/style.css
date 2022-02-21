@@ -124,6 +124,15 @@ header.active .logo{
     display: none;
 }
 
+
+.nav_menu_icon i{
+    color: var(--color-white);
+}
+
+header.active .nav_menu_icon i{
+    color: var(--segundo-color);
+}
+
 header.active .nav_menu li .nav_link{
     color: var(--segundo-color);
 }
@@ -897,6 +906,10 @@ a{
         padding: 2rem;
     }
 
+    .contenedor_inicio{
+        height: 900px;
+    }
+
     .card_platillo {
         width: 90%;
     }
@@ -1024,6 +1037,13 @@ a{
         width: 90%;
     }
 
+    .titulo_inicio{
+        font-size: 1.5rem;
+    }
+    .nav_menu_icon i{
+        font-size: 1.5rem;
+    }
+
     .content_form_disign{
         width: 100%;
     }
@@ -1068,5 +1088,17 @@ a{
     .footer-terms{
         justify-content: center;
         align-items: center;
+    }
+    .nav .logo{
+        font-size: 1.4rem;
+    }
+    .nav{
+        height: 2rem;
+    }
+    .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after , .swiper-button-prev:after, .swiper-rtl .swiper-button-next:after{
+        font-size: 30px !important;
+    }
+    .contenedor_subtitulo.servicios{
+        font-size: 1.5rem;
     }
 }
