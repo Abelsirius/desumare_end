@@ -62,6 +62,17 @@
           },
       });
 
+      var swiper = new Swiper('.content_about', {
+        effect: "coverflow",
+        grabCursor: true,
+        centeredSlides: true,
+        slidesPerView: "auto",
+        loop:true,
+        spaceBetween:32,
+        coverflowEffect: {
+          rotate: 0,
+        },
+      });
   
 
           var swiper = new Swiper('.contenedor_view_restaurant', {
@@ -112,7 +123,7 @@
       reset:true
   })
   
-  sr.reveal(".inicio_data_subtitulo, .titulo_inicio , .contenedor_btn, .about_data, .img_platillos, .contenedor_titulo , .container_swiper, .contenedor_subtitulo , .card_service, .contenedor_view_restaurant,.item-social-media,.inputs-form,.fooster-content-item,.content-terminos-privacidad,.card_platillo",{
+  sr.reveal(".inicio_data_subtitulo, .titulo_inicio , .contenedor_btn, .about_data, .img_platillos, .contenedor_titulo , .container_swiper, .contenedor_subtitulo , .card_service, .contenedor_view_restaurant,.item-social-media,.inputs-form,.fooster-content-item,.content-terminos-privacidad",{
       origin: "top",
       interval: 100,
   })
@@ -132,7 +143,7 @@
   /* ------------ CloseNav ------------- */ 
 
 
-  let arrLinks = document.querySelectorAll('.nav_menu li');
+  let arrLinks = document.querySelectorAll('.nav_menu li a');
   let arrLinksa = document.querySelectorAll('.nav_menu li a');
 
 
@@ -142,13 +153,14 @@
      let nav_menu = document.querySelector('.nav_menu');
      nav_menu.classList.remove('active');
    
-
+     let contIcon_menu = document.querySelector('.nav_menu_icon')
      let iconMenu = document.querySelector('.ri-close-line');
-     iconMenu.className = 'ri-menu-line';
 
-     arrLinksa.forEach(link => link.classList.contains('active') ? link.classList.remove('active') : console.log('as'))
+     if(window.getComputedStyle(contIcon_menu).display == 'block'){
+        iconMenu.className = "ri-menu-line";
+     }
 
-     e.target.classList.add('active')
+
   }  
 
 
@@ -157,4 +169,23 @@
 
 
 
-  
+/* ----------------- Scroll Nav link --------------*/
+
+const sections = document.querySelectorAll('section[id]')
+
+function scrollActive(){
+    const scrollY = window.pageYOffset
+
+    sections.forEach(current =>{
+        const sectionHeight = current.offsetHeight
+        const sectionTop = current.offsetTop - 50;
+        sectionId = current.getAttribute('id')
+
+        if(scrollY > sectionTop && scrollY <= sectionTop + sectionHeight){
+            document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.add('active-link')
+        }else{
+            document.querySelector('.nav_menu a[href*=' + sectionId + ']').classList.remove('active-link')
+        }
+    })
+}
+window.addEventListener('scroll', scrollActive);
