@@ -8,23 +8,23 @@ app.use(express.static(path.join(__dirname)));
 // Ruta para recibir el archivo index.html
 
 app.get('/',(req,res)=>{
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public'));
 })
 
 app.get('/ceviches',(req,res)=>{
 
-    res.sendFile(path.join(__dirname, 'ceviche.html'))
+    res.sendFile(path.join(__dirname, 'public','ceviche.html'))
 
 })
 
 app.get('/chicharrones',(req,res)=>{
 
-    res.sendFile(path.join(__dirname, 'chicharron.html'))
+    res.sendFile(path.join(__dirname, 'public', 'chicharron.html'))
 
 })
 app.get('/langostas',(req,res)=>{
 
-    res.sendFile(path.join(__dirname, 'langostas.html'))
+    res.sendFile(path.join(__dirname, 'public','langostas.html'))
 
 })
 
